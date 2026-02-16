@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-xs text-slate-500 uppercase font-semibold tracking-wider">Time</p>
-                  <p className="font-bold">10:00 PM EST</p>
+                  <p className="font-bold">10:00 AM EST</p>
                 </div>
               </div>
             </div>

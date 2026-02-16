@@ -6,6 +6,7 @@ interface FormData {
   lastName: string;
   email: string;
   jobTitle: string;
+  website: string; // Honeypot field - should remain empty for real users
 }
 
 const RegistrationForm: React.FC = () => {
@@ -16,6 +17,7 @@ const RegistrationForm: React.FC = () => {
     lastName: '',
     email: '',
     jobTitle: '',
+    website: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,12 +27,21 @@ const RegistrationForm: React.FC = () => {
 
   const resetForm = () => {
     setIsSuccess(false);
-    setFormData({ firstName: '', lastName: '', email: '', jobTitle: '' });
+    setFormData({ firstName: '', lastName: '', email: '', jobTitle: '', website: '' });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    // Honeypot check - if filled, it's a bot. Silently "succeed" without sending.
+    if (formData.website) {
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setIsSuccess(true);
+      }, 1000);
+      return;
+    }
 
     try {
       await fetch(import.meta.env.VITE_GOOGLE_SCRIPT_URL, {
@@ -70,7 +81,7 @@ const RegistrationForm: React.FC = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-6 rounded-xl">
+    <form onSubmit={handleSubmit} className="relative space-y-4 bg-white p-6 rounded-xl">
       <div className="grid grid-cols-2 gap-4">
         <div className="space-y-1">
             <label htmlFor="firstName" className="text-sm font-medium text-slate-700">First Name</label>
@@ -121,6 +132,20 @@ const RegistrationForm: React.FC = () => {
             value={formData.jobTitle}
             onChange={handleChange}
             className="w-full px-4 py-2 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-brand-blue outline-none transition-all"
+        />
+      </div>
+
+      {/* Honeypot field - hidden from users, bots will fill it */}
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <label htmlFor="website">Website</label>
+        <input
+            type="text"
+            id="website"
+            name="website"
+            value={formData.website}
+            onChange={handleChange}
+            tabIndex={-1}
+            autoComplete="off"
         />
       </div>
 

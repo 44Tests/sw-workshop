@@ -22,6 +22,13 @@ function doPost(e) {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data = JSON.parse(e.postData.contents);
 
+    // Honeypot check - if website field is filled, it's a bot
+    if (data.website && data.website.length > 0) {
+      return ContentService
+        .createTextOutput(JSON.stringify({ success: true }))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+
     // Append a new row with the registration data
     sheet.appendRow([
       new Date(),           // Timestamp
