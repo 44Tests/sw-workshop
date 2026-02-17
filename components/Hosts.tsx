@@ -15,7 +15,7 @@ const Hosts: React.FC = () => {
               <h3 className="text-xl font-bold text-brand-navy">The Kaizen Ninja</h3>
               <p className="text-brand-blue font-medium mb-3">Partner</p>
               <p className="text-slate-600 text-center text-sm leading-relaxed">
-                 Experts in rapid transformation and practical, floor-level problem solving for manufacturing environments.
+                 Expert in rapid transformation and practical, floor-level problem solving for manufacturing environments.
               </p>
            </div>
 

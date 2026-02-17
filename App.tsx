@@ -25,9 +25,13 @@ const App: React.FC = () => {
       <nav className="border-b border-slate-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
-             <img src="/lean365.svg" alt="Lean365" className="h-6 w-auto" />
+             <a href="https://lean365.ai/" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-70">
+               <img src="/lean365.svg" alt="Lean365" className="h-6 w-auto" />
+             </a>
              <span className="text-slate-300">|</span>
-             <img src="/KN.jpg" alt="The Kaizen Ninja" className="h-6 w-auto" />
+             <a href="https://thekaizenninja.com/" target="_blank" rel="noopener noreferrer" className="transition-opacity hover:opacity-70">
+               <img src="/KN.jpg" alt="The Kaizen Ninja" className="h-6 w-auto" />
+             </a>
           </div>
           <a href="#register" className="hidden sm:block text-sm font-semibold text-brand-blue hover:text-brand-navy transition-colors">
             Reserve Your Spot &rarr;

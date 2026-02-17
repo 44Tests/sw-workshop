@@ -31,7 +31,7 @@ const ProblemSection: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-brand-navy mb-3">The Audit Trap</h3>
                 <p className="text-slate-600 leading-relaxed">
-                    Organizations audit compliance yet still see the same output variability. Audits without a solid foundation are just theater.
+                    Organizations audit compliance yet still see the same output variability. Audits without a solid foundation are just evaluating a flawed system.
                 </p>
             </div>
 
@@ -41,7 +41,7 @@ const ProblemSection: React.FC = () => {
                 </div>
                 <h3 className="text-xl font-bold text-brand-navy mb-3">Engagement Failure</h3>
                 <p className="text-slate-600 leading-relaxed">
-                   When Standard Work is imposed rather than developed by the floor, it is ignored the moment the supervisor walks away.
+                   When Standard Work is imposed rather than developed by the people on the floor, it is ignored the moment the supervisor walks away.
                 </p>
             </div>
         </div>
